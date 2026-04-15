@@ -8,17 +8,17 @@ export default function Contact() {
   let [content, setContent] = useState("");
   async function saveData() {
     const docRef = await addDoc(collection(db, "userContact"), {
-      name: "Tokyo",
-      email: "",
-      content: "",
+      name: name,
+      email: email,
+      content: content,
     });
   }
 
   return (
     <div>
-      <input type="text" placeholder="Name"/>
-      <input type="email" placeholder="Email" />
-      <input type="text" placeholder="Your request" />
+      <input type="text" onChange={(event)=> setName(event.target.value)} placeholder="Name"/>
+      <input type="email" onChange={(event)=> setEmail(event.target.value)} placeholder="Email" />
+      <input type="text" onChange={(event)=> setContent(event.target.value)} placeholder="Your request" />
       <button onClick={saveData}>Save</button>
     </div>
   );
