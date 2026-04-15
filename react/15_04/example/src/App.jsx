@@ -17,7 +17,7 @@ export default function App() {
                 <Link to={'/Ecommerce'}>Ecommerce</Link>
             </li>
             <li>
-                <Link to={'/Contact'}>Contact</Link>
+                <Link to={'/Contact'}>Leen</Link>
             </li>
           </ul>
         </div>
