@@ -12,7 +12,7 @@
   "description": "",
   "dependencies": {
     "express": "^5.2.1",
-    "mongodb": "^3.1.10",
+    "mongodb": "^6.21.0",
     "nodemon": "^3.1.14"
   }
 }
