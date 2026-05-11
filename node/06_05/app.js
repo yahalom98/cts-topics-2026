@@ -34,39 +34,39 @@ async function main() {
     console.log("Many students added");
 
     // 5. Read all students
-    const allStudents = await students.find().toArray();
-    console.log("All students:");
-    console.log(allStudents);
+    // const allStudents = await students.find().toArray();
+    // console.log("All students:");
+    // console.log(allStudents);
 
-    // 6. Find one student
-    const oneStudent = await students.findOne({ name: "Dana" });
-    console.log("One student:");
-    console.log(oneStudent);
+    // // 6. Find one student
+    // const oneStudent = await students.findOne({ name: "Dana" });
+    // console.log("One student:");
+    // console.log(oneStudent);
 
-    // 7. Find students by course
-    const fullstackStudents = await students
-      .find({ course: "Fullstack" })
-      .toArray();
+    // // 7. Find students by course
+    // const fullstackStudents = await students
+    //   .find({ course: "Fullstack" })
+    //   .toArray();
 
-    console.log("Fullstack students:");
-    console.log(fullstackStudents);
+    // console.log("Fullstack students:");
+    // console.log(fullstackStudents);
 
     // 8. Update one student
     await students.updateOne(
       { name: "Dana" },
-      { $set: { age: 25 } }
+      { $set: { age: 27 } }
     );
 
-    console.log("Dana updated");
+    // console.log("Dana updated");
 
-    // 9. Delete one student
-    await students.deleteOne({ name: "Yossi" });
+    // // 9. Delete one student
+    // await students.deleteOne({ name: "Yossi" });
 
-    console.log("Yossi deleted");
+    // console.log("Yossi deleted");
 
-    // 10. Count students
-    const count = await students.countDocuments();
-    console.log("Number of students:", count);
+    // // 10. Count students
+    // const count = await students.countDocuments();
+    // console.log("Number of students:", count);
 
   } catch (error) {
     console.log("Error:", error);
