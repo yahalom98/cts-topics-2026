@@ -1,19 +1,17 @@
-let express = require('express');
-let cors = require('cors');
-let connect = require('./db');
-let studentRoutes = require('./routes/studentRoutes');
+const express = require("express");
+const cors = require("cors");
+const connectDB = require("./db");
+const studentsRoutes = require("./routes/studentRoutes");
 
-let app = express();
+const app = express();
 
-connect();
+connectDB();
 
-// middleware 
+app.use(cors());
 app.use(express.json());
 
-app.get('/', (req,res) =>{
-    res.send('Student Routes API is working');
-})
+app.use("/api/students", studentsRoutes);
 
-app.use('/api/students', studentRoutes);
-
-app.listen(3000);
+app.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});

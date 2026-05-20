@@ -1,43 +1,25 @@
-let express = require("express");
-let studentModel = require("../models/student");
+const express = require("express");
+const studentModel = require("../models/student");
 
-// EXPRESS ROUTER
-let router = express.Router();
+const router = express.Router();
 
-// GET ALL Students data
 router.get("/", async (req, res) => {
-  try {
-    const studentsData = await studentModel.find();
-    res.json(studentsData);
-  } catch (error) {
-    res.status(500).json({
-      message: "Error fetching students",
-    });
-  }
+  const students = await studentModel.find();
+  res.json(students);
 });
 
-// CREATE Student
 router.post("/", async (req, res) => {
-  try {
-    let { title, content } = req.body;
+  const { title, content, category } = req.body;
 
-    let newStudentData = new studentModel({
-      title,
-      content,
-    });
+  const newStudent = new studentModel({
+    title,
+    content,
+    category,
+  });
 
-    let savedStudentData = await newStudentData.save();
+  const savedStudent = await newStudent.save();
 
-    res.status(201).json({
-      message: "Student created successfully",
-      data: savedStudentData,
-    });
-  } catch (error) {
-    res.status(500).json({
-      message: "Error creating student",
-      error: error.message,
-    });
-  }
+  res.json(savedStudent);
 });
 
 module.exports = router;

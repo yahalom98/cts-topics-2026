@@ -9,6 +9,10 @@ let studentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  category:{
+    type:String,
+    default:'General'
+  },
   createdAt: {
     type: Date,
     default: Date.now,

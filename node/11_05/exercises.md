@@ -14,7 +14,7 @@ Example note:
 Requirements
 Update the Mongoose model.
 Add an input in React.
-Send category from React to the backend.
+Send category from React to the bacjkend.
 Display category in each note card."
 
 Exercise 2 — Add Update Note
