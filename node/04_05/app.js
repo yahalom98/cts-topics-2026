@@ -1,16 +1,19 @@
-const express = require('express');
-const app = express();
-const port = 8080;
+const express = require('express')
+const app = express()
+let student = require('./routes/students')
 
-// Define a route for GET requests to the root URL
-app.get('/about', (req, res) => {
-    res.send('About Page');
-});
+const requestTime = function (req, res, next) {
+  req.requestTime = Date.now()
+  next()
+}
 
-app.post('/submit', (req, res) => {
-    res.send('Form Submitted');
-});
-// Start the server
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+app.use(requestTime)
+app.use(student)
+
+app.get('/', (req, res) => {
+  let responseText = 'Hello World!<br>'
+  responseText += `<small>Requested at: ${req.requestTime}</small>`
+  res.send(responseText)
+})
+
+app.listen(3000)
